@@ -1,10 +1,10 @@
-import { createServer } from "http";
+import { createServer } from 'http';
 import stoppable from 'stoppable';
-import { inject, injectable } from "inversify";
-import { constants } from "../config/constants";
-import { Bootstrapers } from "../config/bootstrapers";
-import { IApollo } from "./apollo";
-import { IApp } from "./app";
+import { inject, injectable } from 'inversify';
+import { constants } from '../config/constants';
+import { Bootstrapers } from '../config/bootstrapers';
+import { IApollo } from './apollo';
+import { IApp } from './app';
 
 const { PORT } = constants;
 
@@ -39,27 +39,27 @@ export class Server {
   }
 
   private addProcessEvents(): void {
-    process.on("uncaughtException", (error) => {
+    process.on('uncaughtException', (error) => {
       console.log(error, 'error - uncaughtException');
       this.shutdown();
     });
   
-    process.on("unhandledRejection", (error) => {
+    process.on('unhandledRejection', (error) => {
       console.log(error, 'error - unhandledRejection');
       this.shutdown();
     });
   
-    process.on("SIGTERM", () => {
+    process.on('SIGTERM', () => {
       console.log('SIGTERM');
       this.shutdown();
     });
   
-    process.on("SIGINT", () => {
+    process.on('SIGINT', () => {
       console.log('SIGINT');
       this.shutdown();
     });
   
-    process.on("exit", (code) => {
+    process.on('exit', (code) => {
       console.log(`Exiting with code: ${code}`);
     });
   }

@@ -1,5 +1,5 @@
 import { User } from '../../model/user';
-import { Arg, Query, Resolver } from "type-graphql";
+import { Arg, Query, Resolver } from 'type-graphql';
 import { inject, injectable } from 'inversify';
 import { Services } from '../../config/services';
 import { IErrorService } from '../../services/error.service';
@@ -11,7 +11,7 @@ export class UserResolvers {
     @inject(Services.ErrorService) private readonly errorService: IErrorService
   ) {}
 
-  @Query((_returns) => User)
+  @Query((_returns: void) => User)
   user(
     @Arg('age') age: number
   ): User {

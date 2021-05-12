@@ -22,30 +22,30 @@ export const constants = {
     TEST: 'test'
   },
   LOG_LEVELS: {
-    INFO: "info",
-    ERROR: "error",
-    DEBUG: "debug",
-    WARN: "warn",
+    INFO: 'info',
+    ERROR: 'error',
+    DEBUG: 'debug',
+    WARN: 'warn',
   },
   ERRORS: {
     BAD_REQUEST: {
-      TYPE: "BAD_REQUEST",
+      TYPE: 'BAD_REQUEST',
       CODE: 400
     },
     NOT_FOUND: {
-      TYPE: "NOT_FOUND",
+      TYPE: 'NOT_FOUND',
       CODE: 404
     },
     INTERNAL_SERVER_ERROR: {
-      TYPE: "INTERNAL_SERVER_ERROR",
+      TYPE: 'INTERNAL_SERVER_ERROR',
       CODE: 500
     },
     UNAUTHORIZED: {
-      TYPE: "UNAUTHORIZED",
+      TYPE: 'UNAUTHORIZED',
       CODE: 403
     },
     UNAUTHENTICATED: {
-      TYPE: "UNAUTHENTICATED",
+      TYPE: 'UNAUTHENTICATED',
       CODE: 402
     }
   }

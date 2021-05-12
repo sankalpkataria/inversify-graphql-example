@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { Container } from "inversify";
+import { Container } from 'inversify';
 import { UserResolvers } from '../modules/user/user-resolver';
 import { ILoggerService, LoggerService } from '../services/logger.service';
 import { ErrorService, IErrorService } from '../services/error.service';
