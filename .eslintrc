@@ -1,0 +1,22 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": false,
+    "node": true,
+    "es2020": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "warn"
+  },
+  "extends": [
+    "prettier/@typescript-eslint",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:sonarjs/recommended"
+  ],
+  "plugins": ["@typescript-eslint"]
+}
