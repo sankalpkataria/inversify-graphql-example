@@ -7,7 +7,7 @@ import { Resolvers } from '../modules/';
 import DIContainer from '../config/di-container';
 import { buildSchema } from 'type-graphql';
 
-const {ENV, ENVIRONMENTS, GRAPHQL_DEPTH_LIMIT} = constants;
+const {NODE_ENV, ENVIRONMENTS, GRAPHQL_DEPTH_LIMIT} = constants;
 
 @injectable()
 export class Apollo {
@@ -27,7 +27,7 @@ export class Apollo {
 
   async init(): Promise<ApolloServer> {
     const schema = await this.createSchema();
-    const isProduction = ENV === ENVIRONMENTS.PROD;
+    const isProduction = NODE_ENV === ENVIRONMENTS.PROD;
     return new ApolloServer({
       schema,
       debug: !constants,

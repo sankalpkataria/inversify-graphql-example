@@ -8,13 +8,13 @@ if (envConf.error) {
 
 const {
   PORT,
-  ENV,
+  NODE_ENV,
   GRAPHQL_DEPTH_LIMIT
 } = process.env;
 
 export const constants = {
   PORT,
-  ENV,
+  NODE_ENV,
   GRAPHQL_DEPTH_LIMIT: parseInt(GRAPHQL_DEPTH_LIMIT || '4'),
   ENVIRONMENTS: {
     DEV: 'development',
