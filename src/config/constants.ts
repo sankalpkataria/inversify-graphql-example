@@ -21,6 +21,9 @@ export const constants = {
     PROD: 'production',
     TEST: 'test'
   },
+  SUBSCRIPTION_TOPICS: {
+    USER_QUERY: 'USER_QUERY'
+  },
   LOG_LEVELS: {
     INFO: 'info',
     ERROR: 'error',
