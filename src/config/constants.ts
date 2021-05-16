@@ -1,11 +1,3 @@
-import DotEnv from 'dotenv';
-
-const envConf = DotEnv.config();
-
-if (envConf.error) {
-  throw new Error('Something is wrong with .env');  
-}
-
 const {
   PORT,
   NODE_ENV,
