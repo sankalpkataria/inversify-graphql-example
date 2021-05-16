@@ -1,9 +1,9 @@
 import DIContainer from './config/di-container';
 import { IServer } from './bin/server';
-import { Bootstrapers } from './config/bootstrapers';
+import { BootStrapers } from './config/boot-strapers';
 
 const server = DIContainer.get<IServer>(
-  Bootstrapers.Server
+  BootStrapers.Server
 );
 
 server.init();

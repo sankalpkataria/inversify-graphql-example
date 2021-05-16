@@ -4,7 +4,7 @@ import { UserResolvers } from '../modules/user/user-resolver';
 import { ILoggerService, LoggerService } from '../services/logger.service';
 import { ErrorService, IErrorService } from '../services/error.service';
 import { Services } from './services';
-import { Bootstrapers } from './bootstrapers';
+import { BootStrapers } from './boot-strapers';
 import { App, IApp } from '../bin/app';
 import { Apollo, IApollo } from '../bin/apollo';
 import { IServer, Server } from '../bin/server';
@@ -22,9 +22,9 @@ const bindServices = (c: Container) => {
 
 // Binds service signatures to their implementations
 const bindBootstrapers = (c: Container) => {
-  c.bind<IApollo>(Bootstrapers.Apollo).to(Apollo).inSingletonScope();
-  c.bind<IApp>(Bootstrapers.App).to(App).inSingletonScope();
-  c.bind<IServer>(Bootstrapers.Server).to(Server).inSingletonScope();
+  c.bind<IApollo>(BootStrapers.Apollo).to(Apollo).inSingletonScope();
+  c.bind<IApp>(BootStrapers.App).to(App).inSingletonScope();
+  c.bind<IServer>(BootStrapers.Server).to(Server).inSingletonScope();
 }
 
 const DIContainer = new Container();
