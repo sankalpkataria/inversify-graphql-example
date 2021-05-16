@@ -2,7 +2,7 @@ import { createServer } from 'http';
 import stoppable from 'stoppable';
 import { inject, injectable } from 'inversify';
 import { constants } from '../config/constants';
-import { Bootstrapers } from '../config/bootstrapers';
+import { BootStrapers } from '../config/boot-strapers';
 import { IApollo } from './apollo';
 import { IApp } from './app';
 
@@ -13,9 +13,9 @@ export class Server {
   private readonly expressApp;
   private readonly server;
   constructor(
-    @inject(Bootstrapers.Apollo) 
+    @inject(BootStrapers.Apollo) 
     private readonly apollo: IApollo,
-    @inject(Bootstrapers.App) 
+    @inject(BootStrapers.App) 
     private readonly app: IApp
   ) {
     if (!PORT) {
@@ -70,7 +70,7 @@ export class Server {
     apolloServer.installSubscriptionHandlers(this.server);
     this.addProcessEvents();
     this.server.listen(PORT, async () => {
-      console.log(`Listening on port ${PORT}`);
+      console.log(`App listening on port ${PORT}`);
     });
   }
 }
