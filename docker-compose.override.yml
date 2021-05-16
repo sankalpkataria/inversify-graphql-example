@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+    # Add other services here
+    app:
+        build:
+            context: .
+            target: dev
+        environment:
+            - NODE_ENV=development
+        volumes: 
+            - .:/app/inversify-graphql-example
+            - /app/inversify-graphql-example/node_modules
+        ports: 
+            - "8080:80"
+            - "9229:9229"
