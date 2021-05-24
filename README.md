@@ -1,5 +1,5 @@
 # inversify-graphql-example
-Node js sample app with `inversify` and `graphql(using apollo server)`.
+Node js sample app with `inversify` and `graphql(using apollo graphql)`.
 It includes `winston` for logging and `stoppable` for graceful shutdowns.
 
 Can be used with or without docker. Instructions are written below.
@@ -11,7 +11,7 @@ Can be used with or without docker. Instructions are written below.
 * create `.env` file to the root of this folder and copy contents from `example.env` into it.
 * Run `npm run dev` to run server with nodemon.
 
-> To run compiled code, run `npm run build` and then `npm start`
+> To run compiled code, run `npm run build`, provide environment variables(.env file will not be read with compiled code) and then `npm start`
 
 ### Using with docker
 a. For building dev stage
