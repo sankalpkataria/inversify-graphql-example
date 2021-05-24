@@ -1,6 +1,6 @@
-import { Services } from '../config/services';
+import { Services } from '@/config/services';
 import { inject, injectable } from 'inversify';
-import { constants } from '../config/constants';
+import { constants } from '@/config/constants';
 import { ILoggerService } from './logger.service';
 
 const { LOG_LEVELS, ERRORS } = constants;

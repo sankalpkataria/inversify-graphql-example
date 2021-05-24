@@ -17,7 +17,10 @@
     "allowJs": false,
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
     "typeRoots": ["./node_modules/@types"],
     "types": ["reflect-metadata"]
   },

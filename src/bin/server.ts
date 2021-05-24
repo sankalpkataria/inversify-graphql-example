@@ -1,8 +1,8 @@
 import { createServer } from 'http';
 import stoppable from 'stoppable';
 import { inject, injectable } from 'inversify';
-import { constants } from '../config/constants';
-import { BootStrapers } from '../config/boot-strapers';
+import { constants } from '@/config/constants';
+import { BootStrapers } from '@/config/boot-strapers';
 import { IApollo } from './apollo';
 import { IApp } from './app';
 

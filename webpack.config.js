@@ -1,4 +1,5 @@
 const nodeExternals = require('webpack-node-externals');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -30,6 +31,7 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.ts', '.js' ],
+    plugins: [new TsconfigPathsPlugin()],
   },
   output: {
     filename: 'bundle.js',

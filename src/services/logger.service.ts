@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 import { createLogger, format, transports } from 'winston';
-import { constants } from '../config/constants';
+import { constants } from '@/config/constants';
 
 const { LOG_LEVELS } = constants;
 

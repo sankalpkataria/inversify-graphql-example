@@ -1,13 +1,13 @@
 import 'reflect-metadata';
 import { Container } from 'inversify';
-import { UserResolvers } from '../modules/user/user-resolver';
-import { ILoggerService, LoggerService } from '../services/logger.service';
-import { ErrorService, IErrorService } from '../services/error.service';
+import { UserResolvers } from '@/modules/user/user-resolver';
+import { ILoggerService, LoggerService } from '@/services/logger.service';
+import { ErrorService, IErrorService } from '@/services/error.service';
 import { Services } from './services';
 import { BootStrapers } from './boot-strapers';
-import { App, IApp } from '../bin/app';
-import { Apollo, IApollo } from '../bin/apollo';
-import { IServer, Server } from '../bin/server';
+import { App, IApp } from '@/bin/app';
+import { Apollo, IApollo } from '@/bin/apollo';
+import { IServer, Server } from '@/bin/server';
 
 
 const bindResolvers = (c: Container) => {

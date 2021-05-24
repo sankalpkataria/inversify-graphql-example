@@ -1,9 +1,9 @@
-import { User } from '../../model/user';
-import { Arg, PubSub, PubSubEngine, Query, Resolver, Root, Subscription, SubscriptionOptions } from 'type-graphql';
+import { User } from '@/model/user';
+import { Arg, PubSub, PubSubEngine, Query, Resolver, Root, Subscription } from 'type-graphql';
 import { inject, injectable } from 'inversify';
-import { Services } from '../../config/services';
-import { constants } from '../../config/constants';
-import { IErrorService } from '../../services/error.service';
+import { Services } from '@/config/services';
+import { constants } from '@/config/constants';
+import { IErrorService } from '@/services/error.service';
 
 const { SUBSCRIPTION_TOPICS } = constants;
 
