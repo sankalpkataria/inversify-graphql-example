@@ -1,10 +1,10 @@
-const http = require("http");
+const http = require('http');
 const options = {  
-    host: "localhost",
-    protocol: "http:",
-    port: "80",
+    host: 'localhost',
+    protocol: 'http:',
+    port: '80',
     timeout: 2000,
-    path: "/ping"
+    path: '/ping'
 };
 
 const request = http.request(options, (res) => {  
