@@ -6,4 +6,6 @@ const server = DIContainer.get<IServer>(
   BootStrapers.Server
 );
 
-server.init();
+server.init().catch((error) => {
+  console.error(error);
+});
