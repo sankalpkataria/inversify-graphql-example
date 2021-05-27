@@ -19,7 +19,7 @@ export class Server {
     private readonly app: IApp
   ) {
     if (!PORT) {
-      console.error();
+      console.error('PORT not provided.');
       process.exit(1);
     }
     this.expressApp = this.app.init();
@@ -64,8 +64,8 @@ export class Server {
     });
   }
 
-  async init(): Promise<void> {
-    const apolloServer = await this.apollo.init();
+  init(): void {
+    const apolloServer = this.apollo.init();
     apolloServer.applyMiddleware({ app: this.expressApp, path: '/graphql' });
     apolloServer.installSubscriptionHandlers(this.server);
     this.addProcessEvents();
@@ -76,6 +76,6 @@ export class Server {
 }
 
 export interface IServer {
-  init: () => Promise<void>;
+  init(): void;
 }
 

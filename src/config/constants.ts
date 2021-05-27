@@ -14,7 +14,7 @@ export const constants = {
     TEST: 'test'
   },
   SUBSCRIPTION_TOPICS: {
-    USER_QUERY: 'USER_QUERY'
+    USER_ADDED: 'USER_ADDED'
   },
   LOG_LEVELS: {
     INFO: 'info',

@@ -1,0 +1,3 @@
+extend type Query {
+  post(id: Int!): Post
+}

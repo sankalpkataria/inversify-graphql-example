@@ -13,6 +13,7 @@ module.exports = {
       {
         test: /\.ts$/,
         include: path.resolve(__dirname, 'src'),
+        exclude: /node_modules/,
         use: [{
           loader: 'ts-loader',
           options: {
@@ -26,7 +27,14 @@ module.exports = {
         use: [{
           loader: 'ignore-loader'
         }]
-      }
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'graphql-tag/loader'
+        }]
+      },
     ],
   },
   resolve: {

@@ -16,5 +16,5 @@ export class App {
 }
 
 export interface IApp {
-  init: () => Express.Express;
+  init(): Express.Express;
 }

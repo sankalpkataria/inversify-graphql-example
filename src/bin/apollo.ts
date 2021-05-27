@@ -1,35 +1,34 @@
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer, IResolvers } from 'apollo-server-express';
 import { constants } from '@/config/constants';
 import depthLimit from 'graphql-depth-limit';
-import { injectable } from 'inversify';
-import { GraphQLSchema } from 'graphql';
-import { Resolvers } from '@/modules/';
-import DIContainer from '@/config/di-container';
-import { buildSchema } from 'type-graphql';
+import { inject, injectable } from 'inversify';
+import { BootStrapers } from '@/config/boot-strapers';
+import { ISchema } from '@/modules';
+import { IPubsub } from './pubsub';
 
 const {NODE_ENV, ENVIRONMENTS, GRAPHQL_DEPTH_LIMIT} = constants;
 
 @injectable()
 export class Apollo {
-  private async createSchema (): Promise<GraphQLSchema> {
-    return buildSchema({
-      resolvers: Resolvers,
-      dateScalarMode: 'timestamp',
-      container: DIContainer,
-      validate: false
-    });
-  }
+  constructor(
+    @inject(BootStrapers.Schema) private readonly schema: ISchema,
+    @inject(BootStrapers.Pubsub) private readonly pubsub: IPubsub,
+  ) {}
 
   private formatError(error: Error) {
     //  Format errors here
     return error;
   }
 
-  async init(): Promise<ApolloServer> {
-    const schema = await this.createSchema();
+  init(): ApolloServer {
     const isProduction = NODE_ENV === ENVIRONMENTS.PROD;
     return new ApolloServer({
-      schema,
+      resolvers: this.schema.getResolvers() as IResolvers<any, any>,
+      typeDefs: this.schema.getTypeDefs(),
+      context: (req) => ({
+        req,
+        pubsub: this.pubsub.getInstance()
+      }),
       debug: !constants,
       introspection: !isProduction,
       playground: !isProduction,
@@ -41,5 +40,5 @@ export class Apollo {
 }
 
 export interface IApollo {
-  init: () => Promise<ApolloServer>;
+  init(): ApolloServer;
 }

@@ -1,0 +1,7 @@
+type Mutation {
+  addUser(
+    name: String!
+    email: String!
+    age: Int
+  ): User
+}

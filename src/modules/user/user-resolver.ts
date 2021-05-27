@@ -1,9 +1,19 @@
 import { User } from '@/model/user';
-import { Arg, PubSub, PubSubEngine, Query, Resolver, Root, Subscription } from 'type-graphql';
+import {
+  Arg,
+  PubSub,
+  PubSubEngine,
+  Query,
+  Resolver,
+  Root,
+  Subscription
+} from 'type-graphql';
 import { inject, injectable } from 'inversify';
 import { Services } from '@/config/services';
 import { constants } from '@/config/constants';
-import { IErrorService } from '@/services/error.service';
+import { IErrorService } from '@/services';
+// https://www.graphql-code-generator.com/
+
 
 const { SUBSCRIPTION_TOPICS } = constants;
 

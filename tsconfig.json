@@ -16,14 +16,14 @@
     "emitDecoratorMetadata": true,
     "allowJs": false,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"]
     },
-    "typeRoots": ["./node_modules/@types"],
+    "typeRoots": ["node_modules/@types"],
     "types": ["reflect-metadata"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

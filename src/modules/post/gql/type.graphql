@@ -1,0 +1,4 @@
+type Post {
+  id: Int
+  content: String
+}
