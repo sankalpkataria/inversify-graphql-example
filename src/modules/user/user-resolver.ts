@@ -7,6 +7,8 @@ import { IErrorService } from '@/services/error.service';
 
 const { SUBSCRIPTION_TOPICS } = constants;
 
+(global as any).id = 1;
+
 @injectable()
 @Resolver(User)
 export class UserResolvers {
@@ -22,6 +24,7 @@ export class UserResolvers {
       this.errorService.throwBadRequestError('Age must be greater than 18');
     }
     return {
+      id: (global as any).id,
       name: 'example',
       email: 'example@example.com',
       age,
@@ -38,10 +41,12 @@ export class UserResolvers {
     if (age < 18) {
       this.errorService.throwBadRequestError('Age must be greater than 18');
     }
+    (global as any).id++;
     const user = {
       name,
       email,
       age,
+      id: (global as any).id,
     };
     pubSub.publish(SUBSCRIPTION_TOPICS.USER_ADDED, user);
     return user;

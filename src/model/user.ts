@@ -2,6 +2,9 @@ import { Field, Int, ObjectType } from 'type-graphql';
 
 @ObjectType()
 export class User {
+  @Field((_type) => Int, { nullable: false })
+  public id!: number;
+
   @Field({ nullable: false })
   public name!: string;
 
