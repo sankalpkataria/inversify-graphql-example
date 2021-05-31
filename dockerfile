@@ -127,6 +127,6 @@ HEALTHCHECK --interval=30s --timeout=30s \
 # Use node executable instead of using npm script.
 CMD [ "node", "bundle.js" ]
 
-# Note: - for security, docker hardening can(must for prodcution) be done.
+# Note: - for security, docker hardening can be done.
 # https://gist.github.com/jumanjiman/f9d3db977846c163df12
 # shows a script for alpine images
