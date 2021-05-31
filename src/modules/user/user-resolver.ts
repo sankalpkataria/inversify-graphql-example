@@ -41,13 +41,13 @@ export class UserResolvers {
     if (age < 18) {
       this.errorService.throwBadRequestError('Age must be greater than 18');
     }
-    (global as any).id++;
     const user = {
       name,
       email,
       age,
       id: (global as any).id,
     };
+    (global as any).id++;
     pubSub.publish(SUBSCRIPTION_TOPICS.USER_ADDED, user);
     return user;
   }
