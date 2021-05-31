@@ -19,6 +19,7 @@ export class UserQueryResolver {
       name: 'example',
       email: 'example@example.com',
       age,
+      id: (global as any).id,
     };
   }
 

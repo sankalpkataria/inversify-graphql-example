@@ -17,6 +17,7 @@ export class Apollo {
 
   private formatError(error: Error) {
     //  Format errors here
+    console.error(error, 'error');
     return error;
   }
 

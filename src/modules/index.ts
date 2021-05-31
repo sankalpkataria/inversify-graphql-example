@@ -6,6 +6,8 @@ import { merge } from 'lodash';
 import { IPost } from './post';
 import { IUser } from './user';
 
+(global as any).id = 1;
+
 @injectable()
 export class Schema {
   constructor(

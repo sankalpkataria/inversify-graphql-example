@@ -2,6 +2,6 @@ type Mutation {
   addUser(
     name: String!
     email: String!
-    age: Int
+    age: Float
   ): User
 }

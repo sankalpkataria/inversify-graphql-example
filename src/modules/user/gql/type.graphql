@@ -1,5 +1,6 @@
 type User {
+  id: Float
   name: String
   email: String
-  age: Int
+  age: Float
 }

@@ -21,7 +21,9 @@ export class UserMutationResolver {
       name,
       email,
       age,
+      id: (global as any).id
     };
+    (global as any).id++;
     await pubsub.publish(SUBSCRIPTION_TOPICS.USER_ADDED, {
       userAdded: user
     });
