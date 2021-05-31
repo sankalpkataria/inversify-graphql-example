@@ -1,5 +1,5 @@
 import { User } from '@/model/user';
-import { Arg, PubSub, PubSubEngine, Query, Resolver, Root, Subscription } from 'type-graphql';
+import { Arg, PubSub, PubSubEngine, Query, Resolver, Root, Subscription, Mutation } from 'type-graphql';
 import { inject, injectable } from 'inversify';
 import { Services } from '@/config/services';
 import { constants } from '@/config/constants';
@@ -16,13 +16,11 @@ export class UserResolvers {
 
   @Query((_returns: void) => User)
   user(
-    @PubSub() pubSub: PubSubEngine,
     @Arg('age') age: number
   ): User {
     if (age < 18) {
       this.errorService.throwBadRequestError('Age must be greater than 18');
     }
-    pubSub.publish(SUBSCRIPTION_TOPICS.USER_QUERY, `User was queried for age: ${age}`);
     return {
       name: 'example',
       email: 'example@example.com',
@@ -30,10 +28,29 @@ export class UserResolvers {
     };
   }
 
-  @Subscription((_returns: void) => String, {topics: SUBSCRIPTION_TOPICS.USER_QUERY})
-  subscribeUserQuery(
-    @Root() res: string,
-  ): string {
+  @Mutation((_returns: void) => User)
+  addUser(
+    @PubSub() pubSub: PubSubEngine,
+    @Arg('age') age: number,
+    @Arg('name') name: string,
+    @Arg('email') email: string
+  ): User {
+    if (age < 18) {
+      this.errorService.throwBadRequestError('Age must be greater than 18');
+    }
+    const user = {
+      name,
+      email,
+      age,
+    };
+    pubSub.publish(SUBSCRIPTION_TOPICS.USER_ADDED, user);
+    return user;
+  }
+
+  @Subscription((_returns: void) => User, {topics: SUBSCRIPTION_TOPICS.USER_ADDED})
+  userAdded(
+    @Root() res: User,
+  ): User {
     return res;
   }
 }
